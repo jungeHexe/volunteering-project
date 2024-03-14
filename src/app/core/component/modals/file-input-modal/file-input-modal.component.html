@@ -1,0 +1,34 @@
+<tui-input-files
+  class="md-mt"
+  *ngIf="!control.value"
+  accept="image/*"
+  [formControl]="control"
+  (reject)="onReject($event)"
+></tui-input-files>
+
+<tui-files class="tui-space_top-1">
+  <tui-file
+    *ngIf="control.value as file"
+    [file]="file"
+    [showDelete]="control.enabled"
+    (removed)="removeFile()"
+  ></tui-file>
+
+  <tui-file
+    *ngIf="rejectedFiles$ | async as file"
+    state="error"
+    [file]="file"
+    [showDelete]="control.enabled"
+    (removed)="clearRejected()"
+  ></tui-file>
+</tui-files>
+
+<button
+  class="md-mt"
+  tuiButton
+  type="button"
+  [disabled]="!control.value"
+  (click)="submit()"
+>
+  Загрузить
+</button>
