@@ -1,0 +1,55 @@
+
+.container {
+  background-image: url("/assets/images/heart-volunteer.jpg");
+  background-position: center;
+  background-size: 100%;
+  background-repeat: revert;
+  box-sizing: border-box;
+  height: 100vh;
+  padding: 25px 45px;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+  }
+}
+
+header, footer, main {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+main {
+  height: calc(100% - (32px + 50px));
+  justify-content: space-around;
+  color: white;
+}
+
+footer {
+  justify-content: flex-end;
+}
+
+.call-to-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.default-container {
+  width: 25%;
+  margin: auto 0;
+
+  asl-google-signin-button {
+    margin: 0 auto;
+  }
+}

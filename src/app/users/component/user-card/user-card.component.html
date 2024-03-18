@@ -1,0 +1,89 @@
+<div class="default-container md-mb">
+  <!--todo settings-->
+  <label class="tui-text_h6">Личные данные</label>
+  <div class="row-gap-md">
+    <img *ngIf="entityStoreService.entity.avatar" class="user-img" [src]="entityStoreService.entity.avatar" alt="avatar"/>
+    <img class="w-20-p user-img" *ngIf="!entityStoreService.entity.avatar" src="https://placehold.co/180/6c86e2/white?text=Волонтер" />
+    <div class="flex-grow">
+      <div class="row-gap-md md-mb">
+        <tui-input class="w-33-p" [formControl]="getControl(CONTROL_NAMES.LAST_NAME)">
+          Фамилия
+          <input
+            tuiTextfield
+            placeholder="Введите фамилию"
+          />
+        </tui-input>
+        <tui-input class="w-33-p" [formControl]="getControl(CONTROL_NAMES.FIRST_NAME)">
+          Имя
+          <input
+            tuiTextfield
+            placeholder="Введите имя"
+          />
+        </tui-input>
+        <tui-input class="w-33-p" [formControl]="getControl(CONTROL_NAMES.MIDDLE_NAME)">
+          Отчество
+          <input
+            tuiTextfield
+            placeholder="Введите отчество"
+          />
+        </tui-input>
+      </div>
+      <div class="row-gap-md md-mb">
+        <tui-input class="flex-grow" [formControl]="getControl(CONTROL_NAMES.EMAIL)">
+          E-mail
+          <input
+            tuiTextfield
+            type="email"
+          />
+        </tui-input>
+        <!--todo поиск--->
+        <tui-multi-select
+          class="w-33-p"
+          *tuiLet="items$ | async as items"
+          [formControl]="getControl(CONTROL_NAMES.SKILLS)">
+          Навыки
+          <tui-data-list-wrapper
+            *tuiDataList
+            tuiMultiSelectGroup
+            [items]="items"
+          ></tui-data-list-wrapper>
+        </tui-multi-select>
+      </div>
+      <div class="row-gap-md md-mb">
+        <tui-textarea
+          class="w-70-p"
+          [formControl]="getControl(CONTROL_NAMES.ABOUT)">
+          Обо мне
+        </tui-textarea>
+      </div>
+      <div class="row-gap-md md-mt">
+        <button
+          appearance="primary"
+          tuiButton
+          type="button"
+          (click)="save()"
+        >
+          Сохранить
+        </button>
+        <button
+          appearance="secondary"
+          tuiButton
+          type="button"
+          (click)="updateAvatar()"
+        >
+          Изменить аватар
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row-gap-md">
+  <div class="default-container w-50-p">
+    <label class="tui-text_h6">События с моим участием</label>
+
+  </div>
+  <div class="default-container w-50-p">
+    <label class="tui-text_h6">Мои достижения</label>
+
+  </div>
+</div>

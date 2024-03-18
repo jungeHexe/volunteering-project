@@ -1,0 +1,57 @@
+.w-20-p {
+  width: 20%;
+}
+
+.w-25-p {
+  width: 25%;
+}
+
+.w-30-p {
+  width: 30%;
+}
+
+.w-33-p {
+  width: calc(100%/3);
+}
+
+.w-50-p {
+  width: 50%;
+}
+
+.w-70-p {
+  width: 70%;
+}
+
+.w-80-p {
+  width: 80%;
+}
+
+.w-100-p {
+  width: 100%;
+}
+
+.my-auto {
+  margin: auto 0;
+}
+
+.mx-auto {
+  margin: 0 auto;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.md-{
+  &mt {
+    margin-top: 20px;
+  }
+
+  &mb {
+    margin-bottom: 20px;
+  }
+
+  &mr {
+    margin-right: 20px;
+  }
+}

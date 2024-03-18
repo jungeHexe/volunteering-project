@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'assets/styles/spaces';
+
+body {
+  background-color: #e1e1e1;
+}
+
+.default-container {
+  background-color: #fff;
+  padding: 24px;
+  height: fit-content;
+  color: black;
+
+  display: grid;
+  grid-row-gap: 10px;
+
+  /* Container */
+
+  box-sizing: border-box;
+  border: 1px solid #EDEDED;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+}
+
+.row-gap-md {
+  display: flex;
+  flex-direction: row;
+  grid-gap: 15px;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}

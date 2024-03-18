@@ -1,0 +1,62 @@
+:host {
+  height: 100vh;
+  width: 100vw;
+
+  #volunteers-icon {
+    margin: 15px auto 40px;
+  }
+  /* Боковое меню навигации */
+  .sidebar {
+    width: 70px;
+    background-color: var(--tui-primary);
+    position: fixed;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* Боковой панели ссылок */
+  .sidebar a {
+    display: flex;
+    justify-content: center;
+    color: white;
+    padding: 20px;
+    text-decoration: none;
+
+    &.active {
+      background-color: var(--tui-primary-active);
+    }
+
+    &:hover:not(.active) {
+      background-color: var(--tui-primary-hover);
+      color: white;
+    }
+  }
+
+  /* Содержимое страницы. Значение свойства margin-left должно совпадать со значением свойства width боковой панели */
+  div.main {
+    height: 100%;
+    box-sizing: border-box;
+    margin-left: 70px;
+    width: calc(100% - 70px);
+
+    header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px 32px 0px 20px;
+      gap: 24px;
+
+      height: 64px;
+
+      background: #FFFFFF;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.12);
+    }
+
+    .content {
+      padding: 20px;
+    }
+  }
+}
