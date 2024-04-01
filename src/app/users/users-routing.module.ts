@@ -7,7 +7,6 @@ import {UserResolver} from "./resolver/user.resolver";
 const routes: Routes = [
   {
     path: `${AppConstants.EMPTY}${AppConstants.ID_PARAM}`,
-    // todo
     // canActivate: [AuthGuard],
     component: UserCardComponent,
     data: {

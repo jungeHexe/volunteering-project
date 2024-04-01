@@ -3,13 +3,15 @@ import { EMPTY, Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { BaseDomain } from '../domain/abstract/base-domain.model';
 import { EntityService } from '../services/entity.service';
+import {NavigationService} from "../services/navigation.service";
 import { EntityStoreService } from '../stores/entity-store.service';
 
 export class EntityEditorResolver<T extends BaseDomain> implements Resolve<T> {
 
   constructor(
     protected readonly entityService: EntityService<T>,
-    protected readonly entityStoreService: EntityStoreService<T>
+    protected readonly entityStoreService: EntityStoreService<T>,
+    protected readonly navigationService: NavigationService,
   ) {
   }
 
@@ -25,7 +27,7 @@ export class EntityEditorResolver<T extends BaseDomain> implements Resolve<T> {
         return this.entityService.get(id)
           .pipe(
             catchError(() => {
-              // todo navigateBack
+              this.navigationService.navigateBack();
               return EMPTY;
             }),
             tap((entity: T) => {
