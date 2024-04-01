@@ -118,7 +118,7 @@ export class UserCardComponent extends BaseEditorComponent<User> implements OnIn
     this.dialog.subscribe({
       next: data => {
         this.getControl(this.CONTROL_NAMES.AVATAR).setValue(User.toClientObject(data).avatar);
-        this.alerts.open('Аватар обновлен').subscribe()
+        this.alerts.open('Аватар обновлен').subscribe();
         UserStoreService.setUser(this.entityStoreService.entity);
       },
     });

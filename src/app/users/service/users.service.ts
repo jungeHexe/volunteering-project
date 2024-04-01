@@ -25,12 +25,14 @@ export class UsersService extends EntityService<User> {
     return this.http.patch(`${SERVER_URL}users/${entity.id}`, entity.toServerObject())
       .pipe(
         catchError((err) => this.errorHandler.handleErrorAndNull(err, 'Ошибка при обновлении профиля')),
-        // todo хрень
-        map((response: any) => OperationResult.toClientObject({status: OperationStatusEnum.Ok})),
+        map((response: any) => {
+          if (response.error) {
+            return OperationResult.toClientObject({status: OperationStatusEnum.Failed, ...response});
+          }
+          return OperationResult.toClientObject({status: OperationStatusEnum.Ok});
+        }),
         tap(() =>
-          this.alerts
-            .open('Данные пользователя обновлены')
-            .subscribe())
+          this.alerts.open('Данные пользователя обновлены').subscribe())
       );
   }
 
